@@ -149,6 +149,22 @@
             </div>
         </div>
 
+         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
+         alt="WhatsApp Logo" class="whatsapp-logo" id="whatsappLink">
+
+    <script>
+        document.getElementById("whatsappLink").addEventListener("click", function() {
+            var phoneNumber = "1234567890"; // Replace with your WhatsApp number
+            var mobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+            if (mobile) {
+                window.location.href = "https://wa.me/" + phoneNumber; // Open WhatsApp app on mobile
+            } else {
+                window.location.href = "https://web.whatsapp.com/send?phone=" + phoneNumber; // Open WhatsApp Web on desktop
+            }
+        });
+    </script>
+
 
 </body>
 <script src="resume.js"></script>
