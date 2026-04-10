@@ -364,3 +364,15 @@
                 padding: 24px 28px;
             }
         }
+
+
+
+@media print {
+    body {
+        margin: 0;
+    }
+}
+
+.card {
+    page-break-inside: avoid;
+}
