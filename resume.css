@@ -1,171 +1,366 @@
-body {
-    margin: 0%;
-    background-color: #fff;
-    font-family: 'Poppins', sans-serif;
-}
-/* fonts imports start */
-@font-face {
-    font-family: freehand;
-    src: url("fonts/Freehand-Regular.ttf");
-}
-@font-face {
-    font-family: "montserrat-light";
-    src: url("fonts/Montserrat/static/Montserrat-Light.ttf");
-}
-@font-face {
-    font-family: "montserrat-bold";
-    src: url("fonts/Montserrat/static/Montserrat-Bold.ttf");
-}
-@font-face {
-    font-family: "montserrat";
-    src: url("fonts/Montserrat/static/Montserrat-Regular.ttf");
-}
+ @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-/* fonts imports end */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-h1,h2,h3,h4,h5,h6{
-    font-family: "montserrat-bold",Verdana, Geneva, Tahoma, sans-serif;
-}
-hr{
-    margin: 0;
-    margin-bottom: 5px;
-    width: 100px;
-    border: 2px solid rgb(255, 255, 255);
-    background-color: #fff;
-}
-@keyframes increase {
-    0%{
-        width: 0px;
-    }
-    100%{
-        width: 250px;
-    }
-    
-}
-.card:hover hr{
-    width: 250px;
-    animation: increase 2s;
-}
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #e8ecf1;
+            color: #333;
+            line-height: 1.6;
+        }
 
-.h-line{
-    margin: 0;
-    margin-bottom: 5px;
-    width: 100px;
-    border: 2px solid rgb(27, 27, 27);
-    background-color: #161616;   
-}
+        /* ── HEADER ── */
+        .main-header {
+            background: linear-gradient(135deg, #1a2a3a 0%, #2c3e50 50%, #1a2a3a 100%);
+            color: #fff;
+            padding: 0;
+        }
 
-p{
-    font-family: "montserrat",Verdana, Geneva, Tahoma, sans-serif;
-}
-/* header */
-.main-header{
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    position: absolute;
-    z-index: 10;
-}
-  
-.sub-header{
-    margin-top: 50px;
-    position: relative;
-}
-.header-box {
-    width: 100%;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
+        .sub-header {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
 
-}
-@keyframes strip-dance{
-    0%{
-        background-color: rgb(243, 198, 0);
-        
-    }
-    50%{background-color: rgb(255, 166, 0);}
-    100%{background-color: rgb(243, 198, 0);}
-    
-}
-.strip-decoration{
-    width: 100%;
-    height: 50%;
-    background-color: rgb(243, 198, 0);
-    position:absolute;
-    bottom: 25%;
-    z-index: -1;
-    animation: strip-dance 5s infinite linear;
-}
-.header-content {
-    width: 100%;
-}
+        .header-box {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 30px 30px 25px;
+        }
 
-.hc1 {
-    flex: 1;
+        .profile-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid rgba(255, 255, 255, 0.8);
+            flex-shrink: 0;
+        }
 
-    text-align: center;
-}
+        .header-content.hc2 .name {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin: 0;
+            line-height: 1.2;
+        }
 
-.hc2 {
-    flex: 3;
-}
-.name{margin: 0;
-    font-family: "montserrat-light", freehand, sans-serif;
-    font-size: 3rem;
-    margin-top: 10px;
-    margin-left: 25px;
-}  
-.title{
-    margin: 0;
-    font-family: "montserrat-light", freehand, sans-serif;
-    margin-left: 25px;
-}
-.profile-image {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    border: #ffffff solid 5px;
-}
-/* header */
+        .header-content.hc2 .title {
+            font-size: 0.95rem;
+            font-weight: 300;
+            opacity: 0.85;
+            margin: 4px 0 0;
+            letter-spacing: 1px;
+        }
 
-.row{
-    width: 100%;
-    
-    display: flex;
-}
-.column1{
-    margin: 0;
-    padding: 0px,10px;
-    height: 100%;
-    flex: 1;
-    color: #fff;
-    background-color: rgb(1, 2, 5);
-}
+        .strip-decoration {
+            height: 4px;
+            background: linear-gradient(90deg, #e67e22, #f39c12, #e67e22);
+        }
 
-.column2{
+        /* ── LAYOUT ── */
+        .row {
+            display: flex;
+            max-width: 1000px;
+            margin: 0 auto;
+            gap: 0;
+        }
 
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    flex: 3;
-}
+        .column {
+            padding: 0;
+        }
 
-/* column1 */
+        .column1 {
+            width: 35%;
+            background: #f5f6f8;
+        }
 
-    /* container */
-    .container{
-        margin: 5px;
-        padding: 0;
-        width: 100%;
-        margin-top: 300px;
-    }
-    .card{ 
-        margin-bottom: 10px;
-        padding: 10px;
-        width: 100%;
-        
-        background-color: #ffffff00
-    }
-/* column1 */
+        .column2 {
+            width: 65%;
+            background: #fff;
+        }
+
+        .column .container {
+            padding: 20px;
+        }
+
+        /* ── CARDS ── */
+        .card {
+            background: transparent;
+            border: none;
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .card:last-child {
+            border-bottom: none;
+        }
+
+        .card h4 {
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #1a2a3a;
+            margin: 0 0 6px;
+        }
+
+        .card hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(90deg, #e67e22, #f1c40f);
+            margin: 0 0 10px;
+            opacity: 1;
+        }
+
+        .card p {
+            font-size: 0.82rem;
+            margin: 0 0 8px;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .card ul {
+            padding-left: 18px;
+            margin: 0;
+        }
+
+        .card ul li {
+            font-size: 0.82rem;
+            color: #444;
+            margin-bottom: 6px;
+            line-height: 1.6;
+        }
+
+        .card ul li:last-child {
+            margin-bottom: 0;
+        }
+
+        .card strong {
+            color: #1a2a3a;
+            font-weight: 600;
+        }
+
+        /* ── CONTACT ICONS ── */
+        .column1 .card p i {
+            width: 20px;
+            text-align: center;
+            color: #e67e22;
+            margin-right: 6px;
+            font-size: 0.8rem;
+        }
+
+        /* ── WORK EXPERIENCE JOB TITLE ── */
+        .card p > strong:first-child {
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 1px;
+        }
+
+        .card p + p > strong:first-child {
+            margin-top: 14px;
+            padding-top: 10px;
+            border-top: 1px dashed rgba(0, 0, 0, 0.1);
+        }
+
+        /* ── PRINT STYLES ── */
+        @media print {
+            body {
+                background: #fff;
+            }
+
+            .main-header {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .strip-decoration {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .card hr {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .row {
+                display: flex;
+            }
+
+            .column1 {
+                width: 35%;
+            }
+
+            .column2 {
+                width: 65%;
+            }
+        }
+
+        /* ── RESPONSIVE ── */
+
+        /* Tablets */
+        @media (max-width: 768px) {
+            .header-box {
+                padding: 24px 20px 20px;
+                gap: 16px;
+            }
+
+            .profile-image {
+                width: 80px;
+                height: 80px;
+            }
+
+            .header-content.hc2 .name {
+                font-size: 1.5rem;
+            }
+
+            .header-content.hc2 .title {
+                font-size: 0.85rem;
+            }
+
+            .row {
+                flex-direction: column;
+            }
+
+            .column1,
+            .column2 {
+                width: 100%;
+            }
+
+            .column1 {
+                background: #fff;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            }
+
+            .column .container {
+                padding: 16px 20px;
+            }
+
+            /* On mobile, show contact horizontally */
+            .column1 .card {
+                padding: 10px 0;
+            }
+
+            .contact-grid {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 4px 20px;
+            }
+
+            .contact-grid p {
+                margin-bottom: 2px !important;
+                font-size: 0.8rem !important;
+            }
+
+            /* On mobile, make skills more compact */
+            .card p {
+                font-size: 0.8rem;
+            }
+
+            .card ul li {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Small phones */
+        @media (max-width: 480px) {
+            .header-box {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px 16px 16px;
+            }
+
+            .profile-image {
+                width: 90px;
+                height: 90px;
+            }
+
+            .header-content.hc2 .name {
+                font-size: 1.35rem;
+            }
+
+            .header-content.hc2 .title {
+                font-size: 0.78rem;
+            }
+
+            .column .container {
+                padding: 14px 16px;
+            }
+
+            .card h4 {
+                font-size: 0.72rem;
+                letter-spacing: 1.5px;
+            }
+
+            .card p {
+                font-size: 0.78rem;
+            }
+
+            .card ul li {
+                font-size: 0.78rem;
+            }
+
+            .card ul {
+                padding-left: 16px;
+            }
+
+            .contact-grid {
+                flex-direction: column;
+                gap: 2px;
+            }
+        }
+
+        /* Medium screens - slight adjustments */
+        @media (min-width: 769px) and (max-width: 1000px) {
+            .sub-header {
+                padding: 0 20px;
+            }
+
+            .header-box {
+                padding: 28px 0 22px;
+            }
+
+            .profile-image {
+                width: 90px;
+                height: 90px;
+            }
+
+            .column .container {
+                padding: 18px;
+            }
+        }
+
+        /* Large screens */
+        @media (min-width: 1001px) {
+            .sub-header {
+                padding: 0 0;
+            }
+
+            .header-box {
+                padding: 35px 35px 28px;
+                gap: 24px;
+            }
+
+            .profile-image {
+                width: 110px;
+                height: 110px;
+            }
+
+            .header-content.hc2 .name {
+                font-size: 2.2rem;
+            }
+
+            .column .container {
+                padding: 24px 28px;
+            }
+        }
