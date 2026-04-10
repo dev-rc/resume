@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Matrimonial Biodata | Rahul Chauhan</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- FontAwesome -->
+<script src="https://kit.fontawesome.com/bcc6355db0.js" crossorigin="anonymous"></script>
+
+<!-- html2pdf -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background: #e8e0d8;
+        font-family: 'Inter', sans-serif;
+        color: #3a3a3a;
+        min-height: 100vh;
+        padding: 30px 16px 60px;
+    }
+
+    /* ── DOWNLOAD BUTTON ── */
+    .download-btn {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+        background: linear-gradient(135deg, #8b1a1a, #b22222);
+        color: #fff;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 50px;
+        font-family: 'Inter', sans-serif;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        box-shadow: 0 4px 20px rgba(139, 26, 26, 0.35);
+        transition: all 0.3s ease;
+        letter-spacing: 0.5px;
+    }
+
+    .download-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 28px rgba(139, 26, 26, 0.5);
+        background: linear-gradient(135deg, #a01e1e, #c93030);
+    }
+
+    .download-btn:active {
+        transform: translateY(0);
+    }
+
+    .download-btn i {
+        font-size: 0.9rem;
+    }
+
+    /* ── BIODATA CONTAINER ── */
+    .container-box {
+        max-width: 780px;
+        margin: 0 auto;
+        background: #fffef9;
+        border-radius: 16px;
+        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        position: relative;
+    }
+
+    /* ── ORNAMENTAL TOP BORDER ── */
+    .ornament-top {
+        height: 6px;
+        background: linear-gradient(90deg, #d4a853, #8b1a1a, #d4a853, #8b1a1a, #d4a853);
+        background-size: 200% 100%;
+    }
+
+    /* ── HEADER ── */
+    .biodata-header {
+        background: linear-gradient(135deg, #8b1a1a 0%, #a52020 40%, #8b1a1a 100%);
+        padding: 32px 30px 28px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .biodata-header::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle at 30% 50%, rgba(212, 168, 83, 0.1) 0%, transparent 50%),
+                    radial-gradient(circle at 70% 50%, rgba(212, 168, 83, 0.08) 0%, transparent 50%);
+        pointer-events: none;
+    }
+
+    .header-om {
+        font-size: 2rem;
+        color: rgba(212, 168, 83, 0.6);
+        margin-bottom: 4px;
+        line-height: 1;
+    }
+
+    .header-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: #f5e6c8;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        margin-bottom: 2px;
+        position: relative;
+    }
+
+    .header-subtitle {
+        font-size: 0.75rem;
+        color: rgba(212, 168, 83, 0.8);
+        letter-spacing: 6px;
+        text-transform: uppercase;
+        font-weight: 300;
+    }
+
+    .header-divider {
+        width: 80px;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #d4a853, transparent);
+        margin: 12px auto 0;
+    }
+
+    /* ── PROFILE HERO ── */
+    .profile-hero {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        padding: 30px 30px;
+        background: linear-gradient(135deg, #fdf8ee 0%, #fff9f0 100%);
+        border-bottom: 1px solid rgba(212, 168, 83, 0.2);
+    }
+
+    /* ── PHOTO SLIDER ── */
+    .profile-photo-wrapper {
+        flex-shrink: 0;
+        position: relative;
+        width: 160px;
+        height: 160px;
+    }
+
+    #mainPhoto {
+        width: 160px;
+        height: 160px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 4px solid #d4a853;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        cursor: pointer;
+        display: block;
+        background: #f0ebe0;
+    }
+
+    .slider-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+        background: rgba(139, 26, 26, 0.85);
+        color: #fff;
+        border: 2px solid #d4a853;
+        padding: 0;
+        cursor: pointer;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        user-select: none;
+        z-index: 5;
+        transition: all 0.2s ease;
+        line-height: 1;
+    }
+
+    .slider-btn:hover {
+        background: rgba(139, 26, 26, 1);
+        transform: translateY(-50%) scale(1.1);
+    }
+
+    .slider-btn.prev {
+        left: -8px;
+    }
+
+    .slider-btn.next {
+        right: -8px;
+    }
+
+    .slide-counter {
+        position: absolute;
+        bottom: -6px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #8b1a1a;
+        color: #f5e6c8;
+        font-size: 0.6rem;
+        font-weight: 600;
+        padding: 2px 10px;
+        border-radius: 50px;
+        letter-spacing: 1px;
+        border: 1px solid #d4a853;
+        z-index: 5;
+    }
+
+    /* ── PROFILE TEXT ── */
+    .profile-info {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .profile-name {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.7rem;
+        font-weight: 700;
+        color: #8b1a1a;
+        margin: 0 0 2px;
+        line-height: 1.2;
+    }
+
+    .profile-tagline {
+        font-size: 0.8rem;
+        color: #999;
+        font-weight: 400;
+        letter-spacing: 1px;
+        margin-bottom: 14px;
+    }
+
+    .quick-info {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 16px;
+    }
+
+    .quick-info-item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.78rem;
+        color: #555;
+    }
+
+    .quick-info-item i {
+        color: #d4a853;
+        font-size: 0.7rem;
+        width: 14px;
+        text-align: center;
+    }
+
+    /* ── BODY CONTENT ── */
+    .biodata-body {
+        padding: 6px 30px 30px;
+    }
+
+    .section {
+        padding: 18px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .section:last-child {
+        border-bottom: none;
+    }
+
+    .section-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 12px;
+    }
+
+    .section-icon {
+        width: 32px;
+        height: 32px;
+        background: linear-gradient(135deg, #8b1a1a, #a52020);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .section-icon i {
+        color: #f5e6c8;
+        font-size: 0.75rem;
+    }
+
+    .section-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: #8b1a1a;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin: 0;
+        border: none;
+        padding: 0;
+    }
+
+    .section-line {
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(90deg, rgba(139, 26, 26, 0.2), transparent);
+    }
+
+    /* ── INFO ROWS ── */
+    .info-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6px 24px;
+    }
+
+    .info-row {
+        display: flex;
+        gap: 8px;
+        font-size: 0.82rem;
+        line-height: 1.6;
+    }
+
+    .info-label {
+        color: #888;
+        font-weight: 400;
+        white-space: nowrap;
+        min-width: 90px;
+    }
+
+    .info-value {
+        color: #3a3a3a;
+        font-weight: 500;
+    }
+
+    .info-full {
+        grid-column: 1 / -1;
+    }
+
+    /* ── EDUCATION BLOCKS ── */
+    .edu-item {
+        padding: 10px 14px;
+        background: #fdfaf4;
+        border-radius: 8px;
+        border-left: 3px solid #d4a853;
+        margin-bottom: 8px;
+    }
+
+    .edu-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .edu-degree {
+        font-weight: 600;
+        font-size: 0.82rem;
+        color: #3a3a3a;
+        margin-bottom: 2px;
+    }
+
+    .edu-school {
+        font-size: 0.78rem;
+        color: #777;
+        margin-bottom: 1px;
+    }
+
+    .edu-meta {
+        font-size: 0.72rem;
+        color: #aaa;
+        font-style: italic;
+    }
+
+    /* ── FAMILY GRID ── */
+    .family-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+
+    .family-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        font-size: 0.82rem;
+        padding: 8px 12px;
+        background: #fdfaf4;
+        border-radius: 8px;
+    }
+
+    .family-item i {
+        color: #d4a853;
+        margin-top: 3px;
+        font-size: 0.75rem;
+    }
+
+    .family-item .f-label {
+        color: #888;
+        font-size: 0.72rem;
+        display: block;
+    }
+
+    .family-item .f-value {
+        color: #3a3a3a;
+        font-weight: 500;
+    }
+
+    .family-note {
+        grid-column: 1 / -1;
+        font-size: 0.78rem;
+        color: #777;
+        font-style: italic;
+        padding: 8px 12px;
+        background: linear-gradient(135deg, rgba(212, 168, 83, 0.06), rgba(139, 26, 26, 0.04));
+        border-radius: 8px;
+        text-align: center;
+    }
+
+    /* ── ABOUT / PREFERENCE TEXT ── */
+    .about-text {
+        font-size: 0.84rem;
+        color: #555;
+        line-height: 1.75;
+        padding: 10px 16px;
+        background: #fdfaf4;
+        border-radius: 8px;
+        border-left: 3px solid #8b1a1a;
+    }
+
+    /* ── PREFERENCE PILLS ── */
+    .pref-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 10px;
+    }
+
+    .pref-pill {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 7px 14px;
+        background: linear-gradient(135deg, rgba(139, 26, 26, 0.06), rgba(139, 26, 26, 0.02));
+        border: 1px solid rgba(139, 26, 26, 0.1);
+        border-radius: 50px;
+        font-size: 0.78rem;
+        color: #555;
+    }
+
+    .pref-pill strong {
+        color: #8b1a1a;
+        font-weight: 600;
+    }
+
+    .pref-note {
+        font-size: 0.8rem;
+        color: #777;
+        font-style: italic;
+        padding: 8px 14px;
+        background: #fdfaf4;
+        border-radius: 8px;
+    }
+
+    /* ── HOBBY TAGS ── */
+    .hobby-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .hobby-tag {
+        padding: 6px 16px;
+        background: linear-gradient(135deg, #8b1a1a, #a52020);
+        color: #f5e6c8;
+        border-radius: 50px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        letter-spacing: 0.3px;
+    }
+
+    /* ── FOOTER ── */
+    .biodata-footer {
+        text-align: center;
+        padding: 16px 30px;
+        background: linear-gradient(135deg, #fdfaf4, #fff9f0);
+        border-top: 1px solid rgba(212, 168, 83, 0.2);
+    }
+
+    .footer-text {
+        font-size: 0.7rem;
+        color: #bbb;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    .footer-ornament {
+        color: #d4a853;
+        font-size: 0.6rem;
+        letter-spacing: 8px;
+        margin-bottom: 4px;
+    }
+
+    /* ── ORNAMENTAL BOTTOM ── */
+    .ornament-bottom {
+        height: 6px;
+        background: linear-gradient(90deg, #d4a853, #8b1a1a, #d4a853, #8b1a1a, #d4a853);
+        background-size: 200% 100%;
+    }
+
+    /* ── IMAGE MODAL ── */
+    .image-modal {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.92);
+        backdrop-filter: blur(4px);
+        animation: fadeIn 0.2s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    .modal-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 85%;
+        max-height: 80vh;
+        border-radius: 12px;
+        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+        object-fit: contain;
+    }
+
+    .modal-close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        color: #fff;
+        font-size: 36px;
+        cursor: pointer;
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: all 0.2s;
+        line-height: 1;
+    }
+
+    .modal-close:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: #d4a853;
+    }
+
+    .modal-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #fff;
+        font-size: 28px;
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: all 0.2s;
+        user-select: none;
+    }
+
+    .modal-nav:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: #d4a853;
+    }
+
+    .modal-nav.prev {
+        left: 20px;
+    }
+
+    .modal-nav.next {
+        right: 20px;
+    }
+
+    .modal-counter {
+        position: absolute;
+        bottom: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+        body {
+            padding: 20px 10px 50px;
+        }
+
+        .download-btn {
+            top: auto;
+            bottom: 20px;
+            right: 16px;
+            padding: 10px 18px;
+            font-size: 0.8rem;
+            box-shadow: 0 4px 16px rgba(139, 26, 26, 0.3);
+        }
+
+        .biodata-header {
+            padding: 24px 20px 20px;
+        }
+
+        .header-om {
+            font-size: 1.6rem;
+        }
+
+        .header-title {
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+        }
+
+        .header-subtitle {
+            font-size: 0.65rem;
+            letter-spacing: 4px;
+        }
+
+        .profile-hero {
+            flex-direction: column;
+            text-align: center;
+            padding: 22px 20px;
+            gap: 16px;
+        }
+
+        .profile-photo-wrapper {
+            width: 140px;
+            height: 140px;
+        }
+
+        #mainPhoto {
+            width: 140px;
+            height: 140px;
+        }
+
+        .slider-btn {
+            width: 26px;
+            height: 26px;
+            font-size: 12px;
+        }
+
+        .slider-btn.prev {
+            left: -4px;
+        }
+
+        .slider-btn.next {
+            right: -4px;
+        }
+
+        .profile-name {
+            font-size: 1.4rem;
+        }
+
+        .profile-tagline {
+            margin-bottom: 10px;
+        }
+
+        .quick-info {
+            justify-content: center;
+            gap: 6px 14px;
+        }
+
+        .biodata-body {
+            padding: 4px 20px 24px;
+        }
+
+        .info-grid {
+            grid-template-columns: 1fr;
+            gap: 4px;
+        }
+
+        .info-full {
+            grid-column: 1;
+        }
+
+        .family-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .family-note {
+            grid-column: 1;
+        }
+
+        .section {
+            padding: 14px 0;
+        }
+
+        .biodata-footer {
+            padding: 14px 20px;
+        }
+
+        .modal-nav {
+            width: 40px;
+            height: 40px;
+            font-size: 22px;
+        }
+
+        .modal-nav.prev {
+            left: 10px;
+        }
+
+        .modal-nav.next {
+            right: 10px;
+        }
+
+        .modal-content {
+            max-width: 92%;
+            max-height: 70vh;
+        }
+    }
+
+    @media (min-width: 601px) and (max-width: 780px) {
+        .biodata-body {
+            padding: 6px 24px 26px;
+        }
+
+        .profile-hero {
+            padding: 24px 24px;
+        }
+
+        .biodata-header {
+            padding: 28px 24px 24px;
+        }
+    }
+
+    /* ── PRINT ── */
+    @media print {
+        body {
+            background: #fff;
+            padding: 0;
+        }
+
+        .download-btn {
+            display: none !important;
+        }
+
+        .slider-btn,
+        .slide-counter,
+        .image-modal {
+            display: none !important;
+        }
+
+        .container-box {
+            box-shadow: none;
+            border-radius: 0;
+        }
+
+        .ornament-top,
+        .ornament-bottom,
+        .biodata-header,
+        .section-icon,
+        .hobby-tag,
+        #mainPhoto {
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<button onclick="downloadPDF()" class="download-btn">
+    <i class="fa-solid fa-download"></i> Download PDF
+</button>
+
+<div id="biodata" class="container-box">
+
+    <!-- Ornamental Top -->
+    <div class="ornament-top"></div>
+
+    <!-- Header -->
+    <div class="biodata-header">
+        <div class="header-om">🕉</div>
+        <h2 class="header-title">Matrimonial Biodata</h2>
+        <p class="header-subtitle">For Marriage Purpose</p>
+        <div class="header-divider"></div>
+    </div>
+
+    <!-- Profile Hero -->
+    <div class="profile-hero">
+        <div class="profile-photo-wrapper">
+            <span class="slider-btn prev" onclick="changeSlide(-1)">&#10094;</span>
+            <img id="mainPhoto" src="" alt="Photo" onclick="openModal()">
+            <span class="slider-btn next" onclick="changeSlide(1)">&#10095;</span>
+            <div class="slide-counter" id="slideCounter">1 / 5</div>
+        </div>
+
+        <div class="profile-info">
+            <h1 class="profile-name">Rahul Chauhan</h1>
+            <p class="profile-tagline">IT Professional · Delhi</p>
+            <div class="quick-info">
+                <div class="quick-info-item">
+                    <i class="fa-solid fa-cake-candles"></i>
+                    <span>31 Years</span>
+                </div>
+                <div class="quick-info-item">
+                    <i class="fa-solid fa-ruler-vertical"></i>
+                    <span>5'5"</span>
+                </div>
+                <div class="quick-info-item">
+                    <i class="fa-solid fa-om"></i>
+                    <span>Hindu / Rajput</span>
+                </div>
+                <div class="quick-info-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Delhi</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="imageModal" class="image-modal" onclick="handleModalClick(event)">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <span class="modal-nav prev" onclick="modalNav(-1, event)">&#10094;</span>
+        <img class="modal-content" id="modalImg">
+        <span class="modal-nav next" onclick="modalNav(1, event)">&#10095;</span>
+        <div class="modal-counter" id="modalCounter">1 / 5</div>
+    </div>
+
+    <!-- Body -->
+    <div class="biodata-body">
+
+        <!-- Personal Information -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon"><i class="fa-solid fa-user"></i></div>
+                <h3 class="section-title">Personal Information</h3>
+                <div class="section-line"></div>
+            </div>
+            <div class="info-grid">
+                <div class="info-row">
+                    <span class="info-label">Full Name</span>
+                    <span class="info-value">Rahul Chauhan</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Date of Birth</span>
+                    <span class="info-value">31 May 1995</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Age</span>
+                    <span class="info-value">31 Years</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Height</span>
+                    <span class="info-value">5'4 foot / 165 cm"</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Religion</span>
+                    <span class="info-value">Hindu</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Caste</span>
+                    <span class="info-value">Chauhan (Rajput) <span class="info-label">(Dhobi)</span></span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Location</span>
+                    <span class="info-value">Jamia Nagar, Delhi</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Contact</span>
+                    <span class="info-value">9818101506</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Education & Career -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <h3 class="section-title">Education & Career</h3>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="edu-item">
+                <div class="edu-degree">Bachelor of Computer Applications (BCA)</div>
+                <div class="edu-meta">To be resumed</div>
+            </div>
+
+            <div class="edu-item">
+                <div class="edu-degree">Diploma in Computer Applications (DCA)</div>
+                <div class="edu-school">Electronics Service & Training Centre (ESCTC), New Delhi</div>
+                <div class="edu-meta">MSME – Technology Centre Ramnagar (2018–19)</div>
+            </div>
+
+            <div class="edu-item">
+                <div class="edu-degree">Senior Secondary (12th)</div>
+                <div class="edu-school">Sarvodaya Bal Vidyalaya, Delhi</div>
+                <div class="edu-meta">Humanities with Physical Education</div>
+            </div>
+
+            <div class="edu-item">
+                <div class="edu-degree">Secondary (10th)</div>
+                <div class="edu-school">Sarvodaya Bal Vidyalaya, Delhi</div>
+            </div>
+
+            <div class="info-grid" style="margin-top: 12px;">
+                <div class="info-row">
+                    <span class="info-label">Profession</span>
+                    <span class="info-value">IT Professional</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Organization</span>
+                    <span class="info-value">Redian Software</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Family Details -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon"><i class="fa-solid fa-people-roof"></i></div>
+                <h3 class="section-title">Family Details</h3>
+                <div class="section-line"></div>
+            </div>
+            <div class="family-grid">
+                <div class="family-item">
+                    <i class="fa-solid fa-user-tie"></i>
+                    <div>
+                        <span class="f-label">Father</span>
+                        <span class="f-value">Ravinder Chauhan (Separated)</span>
+                    </div>
+                </div>
+                <div class="family-item">
+                    <i class="fa-solid fa-user"></i>
+                    <div>
+                        <span class="f-label">Mother</span>
+                        <span class="f-value">Homemaker</span>
+                    </div>
+                </div>
+                <div class="family-item">
+                    <i class="fa-solid fa-user-group"></i>
+                    <div>
+                        <span class="f-label">Siblings</span>
+                        <span class="f-value">1 Sister (Unmarried, Working)</span>
+                    </div>
+                </div>
+                <div class="family-note">
+                    We are a close-knit family with moderate values.
+                </div>
+            </div>
+        </div>
+
+        <!-- About Him -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon"><i class="fa-solid fa-heart"></i></div>
+                <h3 class="section-title">About Him</h3>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-text">
+                Rahul is a responsible and hardworking IT professional. He believes in honesty,
+                mutual respect, and maintaining a balance between modern thinking and traditional values.
+            </div>
+        </div>
+
+        <!-- Partner Preferences -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon"><i class="fa-solid fa-ring"></i></div>
+                <h3 class="section-title">Partner Preferences</h3>
+                <div class="section-line"></div>
+            </div>
+            <div class="pref-list">
+                <div class="pref-pill"><strong>Age:</strong> Suitable match</div>
+                <div class="pref-pill"><strong>Education:</strong> Well-educated</div>
+                <div class="pref-pill"><strong>Profession:</strong> Open</div>
+                <div class="pref-pill"><strong>Location:</strong> Delhi/NCR preferred</div>
+            </div>
+            <div class="pref-note">Looking for a caring and supportive partner.</div>
+        </div>
+
+        <!-- Hobbies -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon"><i class="fa-solid fa-music"></i></div>
+                <h3 class="section-title">Hobbies & Interests</h3>
+                <div class="section-line"></div>
+            </div>
+            <div class="hobby-tags">
+                <span class="hobby-tag"><i class="fa-solid fa-music" style="margin-right:4px;font-size:0.7rem;"></i> Music</span>
+                <span class="hobby-tag"><i class="fa-solid fa-microchip" style="margin-right:4px;font-size:0.7rem;"></i> Technology</span>
+                <span class="hobby-tag"><i class="fa-solid fa-house-chimney" style="margin-right:4px;font-size:0.7rem;"></i> Family Time</span>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="biodata-footer">
+        <div class="footer-ornament">✦ ✦ ✦</div>
+        <p class="footer-text">Prepared for Matrimonial Purpose</p>
+    </div>
+
+    <!-- Ornamental Bottom -->
+    <div class="ornament-bottom"></div>
+
+</div>
+
+<script>
+// ── Photo Slider ──
+let images = [];
+let totalImages = 5; // change this number to match your photos
+
+for (let i = 1; i <= totalImages; i++) {
+    images.push(`mb_photo/p${i}.png`);
+}
+
+let currentIndex = 0;
+
+window.onload = function () {
+    if (images.length > 0) {
+        document.getElementById("mainPhoto").src = images[0];
+        updateCounter();
+    }
+};
+
+function changeSlide(step) {
+    if (images.length === 0) return;
+    currentIndex += step;
+    if (currentIndex < 0) currentIndex = images.length - 1;
+    if (currentIndex >= images.length) currentIndex = 0;
+    document.getElementById("mainPhoto").src = images[currentIndex];
+    updateCounter();
+}
+
+function updateCounter() {
+    const text = (currentIndex + 1) + ' / ' + images.length;
+    document.getElementById("slideCounter").textContent = text;
+    document.getElementById("modalCounter").textContent = text;
+}
+
+// ── Modal ──
+function openModal() {
+    if (images.length === 0) return;
+    document.getElementById("imageModal").style.display = "block";
+    document.getElementById("modalImg").src = images[currentIndex];
+    document.body.style.overflow = "hidden";
+    updateCounter();
+}
+
+function closeModal() {
+    document.getElementById("imageModal").style.display = "none";
+    document.body.style.overflow = "";
+}
+
+function modalNav(step, event) {
+    event.stopPropagation();
+    changeSlide(step);
+    document.getElementById("modalImg").src = images[currentIndex];
+}
+
+function handleModalClick(event) {
+    if (event.target === document.getElementById("imageModal")) {
+        closeModal();
+    }
+}
+
+// Keyboard navigation for modal
+document.addEventListener("keydown", function (e) {
+    const modal = document.getElementById("imageModal");
+    if (modal.style.display === "block") {
+        if (e.key === "Escape") closeModal();
+        if (e.key === "ArrowLeft") modalNav(-1, e);
+        if (e.key === "ArrowRight") modalNav(1, e);
+    }
+});
+</script>
+
+<script>
+function downloadPDF() {
+    const element = document.getElementById("biodata");
+
+    const opt = {
+        margin:       0,
+        filename:     'Rahul_Matrimonial_Biodata.pdf',
+        image:        { type: 'jpeg', quality: 1 },
+        html2canvas:  { scale: 2, useCORS: true },
+        jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+
+    html2pdf().set(opt).from(element).save();
+}
+</script>
+
+</body>
+</html>

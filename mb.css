@@ -1,0 +1,710 @@
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background: #e8e0d8;
+        font-family: 'Inter', sans-serif;
+        color: #3a3a3a;
+        min-height: 100vh;
+        padding: 30px 16px 60px;
+    }
+
+    /* ── DOWNLOAD BUTTON ── */
+    .download-btn {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+        background: linear-gradient(135deg, #8b1a1a, #b22222);
+        color: #fff;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 50px;
+        font-family: 'Inter', sans-serif;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        box-shadow: 0 4px 20px rgba(139, 26, 26, 0.35);
+        transition: all 0.3s ease;
+        letter-spacing: 0.5px;
+    }
+
+    .download-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 28px rgba(139, 26, 26, 0.5);
+        background: linear-gradient(135deg, #a01e1e, #c93030);
+    }
+
+    .download-btn:active {
+        transform: translateY(0);
+    }
+
+    .download-btn i {
+        font-size: 0.9rem;
+    }
+
+    /* ── BIODATA CONTAINER ── */
+    .container-box {
+        max-width: 780px;
+        margin: 0 auto;
+        background: #fffef9;
+        border-radius: 16px;
+        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        position: relative;
+    }
+
+    /* ── ORNAMENTAL TOP BORDER ── */
+    .ornament-top {
+        height: 6px;
+        background: linear-gradient(90deg, #d4a853, #8b1a1a, #d4a853, #8b1a1a, #d4a853);
+        background-size: 200% 100%;
+    }
+
+    /* ── HEADER ── */
+    .biodata-header {
+        background: linear-gradient(135deg, #8b1a1a 0%, #a52020 40%, #8b1a1a 100%);
+        padding: 32px 30px 28px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .biodata-header::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle at 30% 50%, rgba(212, 168, 83, 0.1) 0%, transparent 50%),
+                    radial-gradient(circle at 70% 50%, rgba(212, 168, 83, 0.08) 0%, transparent 50%);
+        pointer-events: none;
+    }
+
+    .header-om {
+        font-size: 2rem;
+        color: rgba(212, 168, 83, 0.6);
+        margin-bottom: 4px;
+        line-height: 1;
+    }
+
+    .header-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: #f5e6c8;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        margin-bottom: 2px;
+        position: relative;
+    }
+
+    .header-subtitle {
+        font-size: 0.75rem;
+        color: rgba(212, 168, 83, 0.8);
+        letter-spacing: 6px;
+        text-transform: uppercase;
+        font-weight: 300;
+    }
+
+    .header-divider {
+        width: 80px;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #d4a853, transparent);
+        margin: 12px auto 0;
+    }
+
+    /* ── PROFILE HERO ── */
+    .profile-hero {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        padding: 28px 30px;
+        background: linear-gradient(135deg, #fdf8ee 0%, #fff9f0 100%);
+        border-bottom: 1px solid rgba(212, 168, 83, 0.2);
+    }
+
+    .profile-photo-wrapper {
+        flex-shrink: 0;
+        position: relative;
+    }
+
+    .profile-photo {
+        width: 120px;
+        height: 150px;
+        border-radius: 10px;
+        object-fit: cover;
+        border: 3px solid #d4a853;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+        background: #f0ebe0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .profile-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .profile-photo-placeholder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #b8a88a;
+        font-size: 0.65rem;
+        text-align: center;
+        gap: 4px;
+    }
+
+    .profile-photo-placeholder i {
+        font-size: 1.8rem;
+        color: #c9b896;
+    }
+
+    .profile-name {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.7rem;
+        font-weight: 700;
+        color: #8b1a1a;
+        margin: 0 0 2px;
+        line-height: 1.2;
+    }
+
+    .profile-tagline {
+        font-size: 0.8rem;
+        color: #999;
+        font-weight: 400;
+        letter-spacing: 1px;
+        margin-bottom: 14px;
+    }
+
+    .quick-info {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 16px;
+    }
+
+    .quick-info-item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.78rem;
+        color: #555;
+    }
+
+    .quick-info-item i {
+        color: #d4a853;
+        font-size: 0.7rem;
+        width: 14px;
+        text-align: center;
+    }
+
+    /* ── BODY CONTENT ── */
+    .biodata-body {
+        padding: 6px 30px 30px;
+    }
+
+    .section {
+        padding: 18px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .section:last-child {
+        border-bottom: none;
+    }
+
+    .section-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 12px;
+    }
+
+    .section-icon {
+        width: 32px;
+        height: 32px;
+        background: linear-gradient(135deg, #8b1a1a, #a52020);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .section-icon i {
+        color: #f5e6c8;
+        font-size: 0.75rem;
+    }
+
+    .section-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: #8b1a1a;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin: 0;
+        border: none;
+        padding: 0;
+    }
+
+    .section-line {
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(90deg, rgba(139, 26, 26, 0.2), transparent);
+    }
+
+    /* ── INFO ROWS ── */
+    .info-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6px 24px;
+    }
+
+    .info-row {
+        display: flex;
+        gap: 8px;
+        font-size: 0.82rem;
+        line-height: 1.6;
+    }
+
+    .info-label {
+        color: #888;
+        font-weight: 400;
+        white-space: nowrap;
+        min-width: 90px;
+    }
+
+    .info-value {
+        color: #3a3a3a;
+        font-weight: 500;
+    }
+
+    .info-full {
+        grid-column: 1 / -1;
+    }
+
+    /* ── EDUCATION BLOCKS ── */
+    .edu-item {
+        padding: 10px 14px;
+        background: #fdfaf4;
+        border-radius: 8px;
+        border-left: 3px solid #d4a853;
+        margin-bottom: 8px;
+    }
+
+    .edu-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .edu-degree {
+        font-weight: 600;
+        font-size: 0.82rem;
+        color: #3a3a3a;
+        margin-bottom: 2px;
+    }
+
+    .edu-school {
+        font-size: 0.78rem;
+        color: #777;
+        margin-bottom: 1px;
+    }
+
+    .edu-meta {
+        font-size: 0.72rem;
+        color: #aaa;
+        font-style: italic;
+    }
+
+    /* ── FAMILY GRID ── */
+    .family-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+
+    .family-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        font-size: 0.82rem;
+        padding: 8px 12px;
+        background: #fdfaf4;
+        border-radius: 8px;
+    }
+
+    .family-item i {
+        color: #d4a853;
+        margin-top: 3px;
+        font-size: 0.75rem;
+    }
+
+    .family-item .f-label {
+        color: #888;
+        font-size: 0.72rem;
+        display: block;
+    }
+
+    .family-item .f-value {
+        color: #3a3a3a;
+        font-weight: 500;
+    }
+
+    .family-note {
+        grid-column: 1 / -1;
+        font-size: 0.78rem;
+        color: #777;
+        font-style: italic;
+        padding: 8px 12px;
+        background: linear-gradient(135deg, rgba(212, 168, 83, 0.06), rgba(139, 26, 26, 0.04));
+        border-radius: 8px;
+        text-align: center;
+    }
+
+    /* ── ABOUT / PREFERENCE TEXT ── */
+    .about-text {
+        font-size: 0.84rem;
+        color: #555;
+        line-height: 1.75;
+        padding: 10px 16px;
+        background: #fdfaf4;
+        border-radius: 8px;
+        border-left: 3px solid #8b1a1a;
+    }
+
+    /* ── PREFERENCE PILLS ── */
+    .pref-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 10px;
+    }
+
+    .pref-pill {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 7px 14px;
+        background: linear-gradient(135deg, rgba(139, 26, 26, 0.06), rgba(139, 26, 26, 0.02));
+        border: 1px solid rgba(139, 26, 26, 0.1);
+        border-radius: 50px;
+        font-size: 0.78rem;
+        color: #555;
+    }
+
+    .pref-pill strong {
+        color: #8b1a1a;
+        font-weight: 600;
+    }
+
+    .pref-note {
+        font-size: 0.8rem;
+        color: #777;
+        font-style: italic;
+        padding: 8px 14px;
+        background: #fdfaf4;
+        border-radius: 8px;
+    }
+
+    /* ── HOBBY TAGS ── */
+    .hobby-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .hobby-tag {
+        padding: 6px 16px;
+        background: linear-gradient(135deg, #8b1a1a, #a52020);
+        color: #f5e6c8;
+        border-radius: 50px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        letter-spacing: 0.3px;
+    }
+
+    /* ── FOOTER ── */
+    .biodata-footer {
+        text-align: center;
+        padding: 16px 30px;
+        background: linear-gradient(135deg, #fdfaf4, #fff9f0);
+        border-top: 1px solid rgba(212, 168, 83, 0.2);
+    }
+
+    .footer-text {
+        font-size: 0.7rem;
+        color: #bbb;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    .footer-ornament {
+        color: #d4a853;
+        font-size: 0.6rem;
+        letter-spacing: 8px;
+        margin-bottom: 4px;
+    }
+
+    /* ── ORNAMENTAL BOTTOM ── */
+    .ornament-bottom {
+        height: 6px;
+        background: linear-gradient(90deg, #d4a853, #8b1a1a, #d4a853, #8b1a1a, #d4a853);
+        background-size: 200% 100%;
+    }
+
+    /* ── RESPONSIVE ── */
+
+    @media (max-width: 600px) {
+        body {
+            padding: 20px 10px 50px;
+        }
+
+        .download-btn {
+            top: auto;
+            bottom: 20px;
+            right: 16px;
+            padding: 10px 18px;
+            font-size: 0.8rem;
+            box-shadow: 0 4px 16px rgba(139, 26, 26, 0.3);
+        }
+
+        .biodata-header {
+            padding: 24px 20px 20px;
+        }
+
+        .header-om {
+            font-size: 1.6rem;
+        }
+
+        .header-title {
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+        }
+
+        .header-subtitle {
+            font-size: 0.65rem;
+            letter-spacing: 4px;
+        }
+
+        .profile-hero {
+            flex-direction: column;
+            text-align: center;
+            padding: 22px 20px;
+            gap: 14px;
+        }
+
+        .profile-photo {
+            width: 100px;
+            height: 125px;
+        }
+
+        .profile-name {
+            font-size: 1.4rem;
+        }
+
+        .profile-tagline {
+            margin-bottom: 10px;
+        }
+
+        .quick-info {
+            justify-content: center;
+            gap: 6px 14px;
+        }
+
+        .biodata-body {
+            padding: 4px 20px 24px;
+        }
+
+        .info-grid {
+            grid-template-columns: 1fr;
+            gap: 4px;
+        }
+
+        .info-full {
+            grid-column: 1;
+        }
+
+        .family-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .family-note {
+            grid-column: 1;
+        }
+
+        .section {
+            padding: 14px 0;
+        }
+
+        .biodata-footer {
+            padding: 14px 20px;
+        }
+    }
+
+    @media (min-width: 601px) and (max-width: 780px) {
+        .biodata-body {
+            padding: 6px 24px 26px;
+        }
+
+        .profile-hero {
+            padding: 24px 24px;
+        }
+
+        .biodata-header {
+            padding: 28px 24px 24px;
+        }
+    }
+
+    /* ── PRINT ── */
+    @media print {
+        body {
+            background: #fff;
+            padding: 0;
+        }
+
+        .download-btn {
+            display: none !important;
+        }
+
+        .container-box {
+            box-shadow: none;
+            border-radius: 0;
+        }
+
+        .ornament-top,
+        .ornament-bottom,
+        .biodata-header,
+        .section-icon,
+        .hobby-tag,
+        .profile-photo {
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+    }
+
+    .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.photo-grid img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.photo-grid img:hover {
+    transform: scale(1.05);
+}
+
+/* Modal */
+.image-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+    display: block;
+    margin: auto;
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 10px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: #fff;
+    font-size: 35px;
+    cursor: pointer;
+}
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    transform: translateY(-50%);
+    user-select: none;
+}
+
+.prev {
+    left: 20px;
+}
+
+.next {
+    right: 20px;
+}
+
+.nav-btn:hover {
+    color: #ccc;
+}
+
+
+.profile-photo-wrapper {
+    position: relative;
+    width: 180px;
+    height: 180px;
+}
+
+.single-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid #ddd;
+}
+
+/* Slider buttons */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 22px;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    padding: 6px 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    user-select: none;
+}
+
+.slider-btn.prev {
+    left: -10px;
+}
+
+.slider-btn.next {
+    right: -10px;
+}
+
+.slider-btn:hover {
+    background: rgba(0,0,0,0.8);
+}
