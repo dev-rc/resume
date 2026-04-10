@@ -30,15 +30,19 @@
     <div class="main-header">
         <div class="sub-header">
             <div class="header-box">
-                <div class="header-content hc1">
-                    <img class="profile-image" src="image/my_pic_2.png" alt="Profile Image">
-                </div>
-                <div class="header-content hc2">
-                    <h1 class="name">Rahul Chauhan</h1>
-                    <p class="title">Software Developer | CRM Developer</p>
-                    
-                </div>
-            </div>
+    <div class="header-content hc1">
+        <img class="profile-image" src="image/rahul_photo.png" alt="Profile Image" onclick="openImage(this)">
+    </div>
+    <div class="header-content hc2">
+        <h1 class="name">Rahul Chauhan</h1>
+        <p class="title">Software Developer | CRM Developer</p>
+    </div>
+</div>
+
+<!-- Popup -->
+<div id="imageModal" class="modal" onclick="closeImage()">
+    <img id="fullImage">
+</div>
             <div class="strip-decoration"></div>
         </div>
     </div>
@@ -243,6 +247,20 @@ function downloadPDF() {
     };
 
     html2pdf().set(opt).from(element).save();
+}
+</script>
+
+<script>
+function openImage(img) {
+  const modal = document.getElementById("imageModal");
+  const fullImage = document.getElementById("fullImage");
+
+  fullImage.src = img.src; // show original
+  modal.style.display = "flex";
+}
+
+function closeImage() {
+  document.getElementById("imageModal").style.display = "none";
 }
 </script>
 </body>
