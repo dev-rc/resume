@@ -10,23 +10,33 @@
 
     <!-- FontAwesome -->
     <script src="https://kit.fontawesome.com/bcc6355db0.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
     <title>Resume | Rahul Chauhan</title>
     <link rel="stylesheet" href="resume.css">
 </head>
 
 <body>
+    
+<button onclick="downloadPDF()" 
+    class="btn btn-dark" 
+    style="position:fixed; top:20px; right:20px; z-index:1000;">
+    
+    <i class="fas fa-download me-2"></i>
+</button>
+<div id="resume">
 
     <!-- HEADER -->
     <div class="main-header">
         <div class="sub-header">
             <div class="header-box">
                 <div class="header-content hc1">
-                    <img class="profile-image" src="image/my pic 2.png" alt="Profile Image">
+                    <img class="profile-image" src="image/my_pic_2.png" alt="Profile Image">
                 </div>
                 <div class="header-content hc2">
                     <h1 class="name">Rahul Chauhan</h1>
                     <p class="title">Software Developer | CRM Developer</p>
+                    
                 </div>
             </div>
             <div class="strip-decoration"></div>
@@ -216,7 +226,23 @@
 </div>
 
     </div>
+</div>
 
+<script>
+function downloadPDF() {
+    const element = document.getElementById("resume");
+
+    const opt = {
+        margin: 0.3,
+        filename: 'Rahul_Chauhan_Resume.pdf',
+        image: { type: 'jpeg', quality: 1 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+    };
+
+    html2pdf().set(opt).from(element).save();
+}
+</script>
 </body>
 
 </html>
